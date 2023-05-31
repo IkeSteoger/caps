@@ -2,17 +2,14 @@
 
 const eventEmitter = require('./eventEmitter');
 
-const payload = require('./chance');
-const { newOrderHandler, deliveredHandler } = require('./vendor');
-const { pickupHandler, intransitHandler } = require('./driver');
+require('./vendor/index');
+require('./driver/index');
 
-newOrderHandler(payload);
-eventEmitter.on('PICKUP', pickupHandler);
-eventEmitter.on('IN-TRANSIT', deliveredHandler);
-eventEmitter.on('DELIVERED', intransitHandler);
-eventEmitter.on('EVENT', (event, payload) => {
-  let timestamp = new Date().toISOString();
-  console.log(`EVENT: { event: ${event}, time: ${timestamp}, payload: ${JSON.stringify(payload)} }` );
-});
+eventEmitter.on('pickup', (payload) => logger('pickup', payload));
+eventEmitter.on('in-transit', (payload) => logger('in-transit', payload));
+eventEmitter.on('delivered', (payload) => logger('delivered', payload));
 
-
+function logger(event, payload){
+  const timestamp = new Date();
+  console.log('EVENT: ', { event, timestamp, payload });
+}
