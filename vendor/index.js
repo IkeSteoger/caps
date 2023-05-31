@@ -3,7 +3,6 @@
 const { orderHandler, deliveredMessage }= require('./handler');
 const eventEmitter = require('../eventEmitter');
 
-// starts the event cycle, note that the pickup emit is inside the orderHandler
 setInterval(() => {
   orderHandler();
 }, 5000);
