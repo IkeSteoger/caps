@@ -1,4 +1,4 @@
-# LAB - 10
+# LAB - 11 / 12
 
 ## Project: CAPS
 
@@ -6,7 +6,7 @@
 
 ### Problem Domain
 
-
+Application for a product called CAPS - The Code Academy Parcel Service. CAPS will simulate a delivery service where vendors (such a flower shops) will ship products using our delivery service and when our drivers deliver them, each vendor will be notified that their customers received what they purchased. First built with EventEmitters and then transfered to Socket.io functionality.
 
 ### Links and Resources
 
@@ -18,13 +18,14 @@
 
 Kaeden O'maera  
 Josh Coffey  
-Reece Renninger
+Reece Renninger  
+Ryan Gallaway  
 
 ### Setup
 
 #### How to initialize/run your application
 
-Clone repo, `npm i`, `node hub.js`
+Clone repo, `npm i`, `npm start`, alter `.env` file.
 
 #### Tests
 
@@ -32,4 +33,5 @@ To run tests, after running `npm i`, run the command `npm test`
 
 #### UML
 
-![UML image](./assets/uml.png)
+![Lab12 UML](./assets/uml12.png)
+![Lab11 UML](./assets/uml.png)
