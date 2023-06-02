@@ -9,7 +9,7 @@ var chance = new Chance();
 const orderHandler = (order=null) => {
   if(!order){
     order = {
-      store: '1-206-flowers',
+      store: 'acme-widgets',
       orderId: chance.guid(),
       customer: chance.name(),
       address: chance.address(),
@@ -18,7 +18,7 @@ const orderHandler = (order=null) => {
   let payload = {
     event: 'pickup',
     messageId: order.orderId,
-    queueId: '1-206-flowers',
+    queueId: 'acme-widgets',
     order,
   };
   console.log('VENDOR: ORDER ready for pickup:', payload);

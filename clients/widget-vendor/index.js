@@ -6,9 +6,9 @@ const { orderHandler, deliveredMessage }= require('./handler');
 
 setInterval(() => {
   orderHandler();
-}, 5000);
+}, 7000);
 
-socket.emit('join', '1-206-flowers');
-socket.emit('getAll', {queueId: '1-206-flowers'});
+socket.emit('join', 'acme-widgets');
+socket.emit('getAll', {queueId: 'acme-widgets'});
 
 socket.on('delivered', deliveredMessage);

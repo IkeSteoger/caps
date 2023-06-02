@@ -32,7 +32,7 @@ describe('Vendor handlers', () => {
     let payload = {
       event: 'pickup',
       messageId: order.orderId,
-      queueId: '1-206-flowers',
+      queueId: 'acme-widgets',
       order,
     };
 
