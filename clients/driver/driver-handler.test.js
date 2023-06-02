@@ -26,20 +26,23 @@ afterAll(() => {
 describe('Testing driver handlers', () => {
 
   test('Should log and emit in-transit after pick up occurs', () => {
-    let payload = { orderId: 12345 };
+    let payload = { order: { orderId: 12345 } };
     pickupOccurred(payload);
 
     expect(socket.emit).toHaveBeenCalledWith('in-transit', payload);
-    expect(consoleSpy).toHaveBeenCalledWith('DRIVER: picking up', payload.orderId);
+    expect(consoleSpy).toHaveBeenCalledWith('DRIVER: picking up', payload.order.orderId);
   });
 
 
   test('should emit delivered and log Driver delivery ', () => {
-    let payload = { orderId: 12345};
+    let payload = { 
+      event: 'delivered',
+      order: { orderId: 12345 },
+    };
     packageDelivered(payload);
 
     expect(socket.emit).toHaveBeenCalledWith('delivered', payload);
-    expect(consoleSpy).toHaveBeenCalledWith('DRIVER: delivered', payload.orderId);
+    expect(consoleSpy).toHaveBeenCalledWith('DRIVER: delivered', payload.order.orderId);
   });
 
 
