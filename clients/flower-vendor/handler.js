@@ -9,17 +9,20 @@ var chance = new Chance();
 const orderHandler = (payload=null) => {
   if(!payload){
     payload = {
-      store: chance.company(),
+      store: '1-206-flowers',
       orderId: chance.guid(),
       customer: chance.name(),
       address: chance.address(),
     };
   }
   console.log('VENDOR: ORDER ready for pickup:', payload);
-  socket.emit('pickup', payload); 
+  socket.emit('pickup', payload);
 };
 
-const thankDriver = (payload) => console.log('VENDOR: Thank you for your order', payload.customer);
+const thankDriver = (payload) => {
+  console.log('VENDOR: Thank you for your order', payload.customer);
+  socket.emit('received', {queueId: '1-206-flowers'});
+};
 
 
 const deliveredMessage = (payload) => {
