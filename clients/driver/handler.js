@@ -5,6 +5,7 @@ const socket = io('http://localhost:3001/caps');
 
 const pickupOccurred = (payload) => {
   console.log('DRIVER: picking up', payload.orderId);
+  socket.emit('received', {queueId: 'DRIVER'});
   socket.emit('in-transit', payload);
 };
 
